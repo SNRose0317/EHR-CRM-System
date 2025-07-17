@@ -2,8 +2,8 @@
  * Test helpers for creating valid test data
  */
 
-import { MedicationProfile } from '../../../types/MedicationProfile';
-import { MedicationRequestContext } from '../../../types/MedicationRequestContext';
+import { MedicationProfile } from '../../types/MedicationProfile';
+import { MedicationRequestContext } from '../../types/MedicationRequestContext';
 
 /**
  * Creates a valid MedicationProfile for testing

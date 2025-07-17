@@ -36,7 +36,7 @@ export type {
 } from './IComplexRegimenBuilder';
 
 // Re-export from SignatureInstruction
-export type { InstructionRelationship } from '../../types/SignatureInstruction';
+export type { InstructionRelationship } from '../types/SignatureInstruction';
 
 export {
   isValidDoseRangeInput,
@@ -59,9 +59,9 @@ export { TaperingDoseBuilder } from './TaperingDoseBuilder';
 /**
  * Factory function to create appropriate builder based on medication
  */
-import { MedicationProfile } from '../../types/MedicationProfile';
+import { MedicationProfile } from '../types/MedicationProfile';
 import { ISignatureBuilder } from './ISignatureBuilder';
-import { isMultiIngredient } from '../signature';
+import { isMultiIngredient } from '../lib/signature';
 import { SimpleTabletBuilder } from './SimpleTabletBuilder';
 import { SimpleLiquidBuilder } from './SimpleLiquidBuilder';
 import { FractionalTabletBuilder } from './FractionalTabletBuilder';

@@ -1,0 +1,17 @@
+
+> @marek/platform-core@1.0.0 build /Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/platform-core
+> tsc && vite build
+
+src/App.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/App.tsx(3,10): error TS6133: 'Button' is declared but its value is never read.
+src/App.tsx(3,66): error TS6305: Output file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/ui-kit/dist/index.d.ts' has not been built from source file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/ui-kit/src/index.ts'.
+src/App.tsx(4,1): error TS6133: 'createBuilder' is declared but its value is never read.
+src/App.tsx(4,31): error TS6305: Output file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/medication-builder/dist/index.d.ts' has not been built from source file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/medication-builder/src/index.ts'.
+src/pages/Dashboard.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/pages/Dashboard.tsx(2,66): error TS6305: Output file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/ui-kit/dist/index.d.ts' has not been built from source file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/ui-kit/src/index.ts'.
+src/pages/MedicationBuilder.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/pages/MedicationBuilder.tsx(2,81): error TS6305: Output file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/ui-kit/dist/index.d.ts' has not been built from source file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/ui-kit/src/index.ts'.
+src/pages/MedicationBuilder.tsx(3,55): error TS6305: Output file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/medication-builder/dist/index.d.ts' has not been built from source file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/medication-builder/src/index.ts'.
+src/pages/PatientManagement.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/pages/PatientManagement.tsx(2,73): error TS6305: Output file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/ui-kit/dist/index.d.ts' has not been built from source file '/Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/ui-kit/src/index.ts'.
+ ELIFECYCLE  Command failed with exit code 2.

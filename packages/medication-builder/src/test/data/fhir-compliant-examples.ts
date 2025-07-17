@@ -7,7 +7,7 @@
  * 
  * Updated: 2025-07-17 - Corrected FHIR packaging model implementation
  * 
- * @see {@link ../../types/README.md} FHIR packaging documentation
+ * @see {@link ../types/README.md} FHIR packaging documentation
  */
 
 import type { Medication } from '../../types';

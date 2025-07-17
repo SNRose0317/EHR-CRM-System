@@ -18,13 +18,13 @@ import {
   isValidDoseInput,
   isValidTimingInput
 } from './ISignatureBuilder';
-import { SignatureInstruction } from '../../types/SignatureInstruction';
-import { MedicationRequestContext } from '../../types/MedicationRequestContext';
-import { MedicationProfile, ScoringType } from '../../types/MedicationProfile';
-import { createTemplateEngine } from '../templates/templates';
-import { TemplateEngine } from '../templates/types';
-import { TemplateDataBuilder } from '../templates/TemplateDataBuilder';
-import { RouteValidator } from '../validation/RouteValidator';
+import { SignatureInstruction } from '../types/SignatureInstruction';
+import { MedicationRequestContext } from '../types/MedicationRequestContext';
+import { MedicationProfile, ScoringType } from '../types/MedicationProfile';
+import { createTemplateEngine } from '../lib/templates/templates';
+import { TemplateEngine } from '../lib/templates/types';
+import { TemplateDataBuilder } from '../lib/templates/TemplateDataBuilder';
+import { RouteValidator } from '../lib/validation/RouteValidator';
 
 /**
  * Builder for tablet and similar solid oral medications

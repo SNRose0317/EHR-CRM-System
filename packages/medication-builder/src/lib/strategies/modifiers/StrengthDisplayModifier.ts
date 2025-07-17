@@ -8,8 +8,8 @@
  */
 
 import { IModifierStrategyWithMetadata } from '../types';
-import { MedicationRequestContext } from '../../../types/MedicationRequestContext';
-import { SignatureInstruction } from '../../../types/SignatureInstruction';
+import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { SignatureInstruction } from '../../types/SignatureInstruction';
 
 export class StrengthDisplayModifier implements IModifierStrategyWithMetadata {
   readonly priority = 20; // After dose conversions but before final formatting

@@ -13,15 +13,15 @@ import {
   TabletStrategy,
   LiquidStrategy,
   TestosteroneCypionateStrategy
-} from '../../strategies/base';
+} from '../../lib/strategies/base';
 import {
   TopiclickModifier,
   StrengthDisplayModifier
-} from '../../strategies/modifiers';
-import { MedicationRequestContext } from '../../../types/MedicationRequestContext';
+} from '../../lib/strategies/modifiers';
+import { MedicationRequestContext } from '../../types/MedicationRequestContext';
 // import { generateSignature as oldGenerateSignature } from '../../signature'; // Not used in current benchmarks
 // import { Medication } from '../../../types'; // Not used in current benchmarks
-import { SpecificityLevel } from '../../strategies/types';
+import { SpecificityLevel } from '../../lib/strategies/types';
 
 // Helper to measure execution time
 function measureTime(fn: () => void): number {

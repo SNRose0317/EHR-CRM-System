@@ -28,9 +28,9 @@ import {
   isValidDoseRangeInput,
   isValidFrequencyRangeInput
 } from './IComplexRegimenBuilder';
-import { SignatureInstruction, Range } from '../../types/SignatureInstruction';
-import { MedicationProfile } from '../../types/MedicationProfile';
-import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { SignatureInstruction, Range } from '../types/SignatureInstruction';
+import { MedicationProfile } from '../types/MedicationProfile';
+import { MedicationRequestContext } from '../types/MedicationRequestContext';
 
 /**
  * PRN timing configuration with ranges

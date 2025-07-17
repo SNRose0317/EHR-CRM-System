@@ -8,9 +8,9 @@
  * @since 2.0.0
  */
 
-import { SignatureInstruction } from '../../types/SignatureInstruction';
-import { MedicationRequestContext } from '../../types/MedicationRequestContext';
-import { Quantity } from '../../types/MedicationProfile';
+import { SignatureInstruction } from '../types/SignatureInstruction';
+import { MedicationRequestContext } from '../types/MedicationRequestContext';
+import { Quantity } from '../types/MedicationProfile';
 
 /**
  * Input structure for dose configuration

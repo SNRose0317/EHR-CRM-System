@@ -8,8 +8,8 @@
  */
 
 import { IModifierStrategyWithMetadata } from '../types';
-import { MedicationRequestContext } from '../../../types/MedicationRequestContext';
-import { SignatureInstruction } from '../../../types/SignatureInstruction';
+import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { SignatureInstruction } from '../../types/SignatureInstruction';
 
 export class TopiclickModifier implements IModifierStrategyWithMetadata {
   readonly priority = 10; // Early priority to modify dose display

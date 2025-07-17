@@ -40,30 +40,33 @@ class ErrorLogger {
       this.originalConsoleError.apply(console, args);
     };
 
-    // Global error handler
-    window.addEventListener('error', (event: ErrorEvent) => {
-      this.logError({
-        timestamp: new Date().toISOString(),
-        type: 'error',
-        message: event.message,
-        stack: event.error?.stack,
-        source: event.filename,
-        lineno: event.lineno,
-        colno: event.colno,
-        error: event.error
+    // Only set up browser-specific handlers if we're in a browser environment
+    if (typeof window !== 'undefined') {
+      // Global error handler
+      window.addEventListener('error', (event: ErrorEvent) => {
+        this.logError({
+          timestamp: new Date().toISOString(),
+          type: 'error',
+          message: event.message,
+          stack: event.error?.stack,
+          source: event.filename,
+          lineno: event.lineno,
+          colno: event.colno,
+          error: event.error
+        });
       });
-    });
 
-    // Unhandled promise rejection handler
-    window.addEventListener('unhandledrejection', (event: PromiseRejectionEvent) => {
-      this.logError({
-        timestamp: new Date().toISOString(),
-        type: 'unhandledRejection',
-        message: `Unhandled Promise Rejection: ${event.reason}`,
-        stack: event.reason?.stack,
-        error: event.reason
+      // Unhandled promise rejection handler
+      window.addEventListener('unhandledrejection', (event: PromiseRejectionEvent) => {
+        this.logError({
+          timestamp: new Date().toISOString(),
+          type: 'unhandledRejection',
+          message: `Unhandled Promise Rejection: ${event.reason}`,
+          stack: event.reason?.stack,
+          error: event.reason
+        });
       });
-    });
+    }
   }
 
   private logError(entry: ErrorLogEntry) {
@@ -74,11 +77,13 @@ class ErrorLogger {
       this.logs = this.logs.slice(-this.maxLogs);
     }
 
-    // Save to localStorage
-    try {
-      localStorage.setItem('errorLogger', JSON.stringify(this.logs));
-    } catch (e) {
-      // Ignore localStorage errors
+    // Save to localStorage (browser only)
+    if (typeof window !== 'undefined' && window.localStorage) {
+      try {
+        localStorage.setItem('errorLogger', JSON.stringify(this.logs));
+      } catch (e) {
+        // Ignore localStorage errors
+      }
     }
 
     // Log to console for immediate visibility
@@ -91,10 +96,12 @@ class ErrorLogger {
 
   public clearLogs() {
     this.logs = [];
-    try {
-      localStorage.removeItem('errorLogger');
-    } catch (e) {
-      // Ignore localStorage errors
+    if (typeof window !== 'undefined' && window.localStorage) {
+      try {
+        localStorage.removeItem('errorLogger');
+      } catch (e) {
+        // Ignore localStorage errors
+      }
     }
   }
 

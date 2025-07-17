@@ -8,11 +8,11 @@
  */
 
 import { IBaseStrategyWithMetadata, SpecificityLevel } from '../types';
-import { MedicationRequestContext } from '../../../types/MedicationRequestContext';
-import { SignatureInstruction } from '../../../types/SignatureInstruction';
+import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { SignatureInstruction } from '../../types/SignatureInstruction';
 // Template engine handles verb selection now
-import { createTemplateEngine } from '../../templates/templates';
-import { TemplateDataBuilder } from '../../templates/TemplateDataBuilder';
+import { createTemplateEngine } from '../../lib/templates/templates';
+import { TemplateDataBuilder } from '../../lib/templates/TemplateDataBuilder';
 
 export class DefaultStrategy implements IBaseStrategyWithMetadata {
   readonly specificity = SpecificityLevel.DEFAULT;

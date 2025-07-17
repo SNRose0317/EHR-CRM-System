@@ -1,7 +1,7 @@
 import { createBuilder, ISignatureBuilder } from '../index';
 import { SimpleTabletBuilder } from '../SimpleTabletBuilder';
 import { SimpleLiquidBuilder } from '../SimpleLiquidBuilder';
-import { MedicationProfile } from '../../../types/MedicationProfile';
+import { MedicationProfile } from '../../types/MedicationProfile';
 
 describe('Builder Factory', () => {
   let mockTabletMedication: MedicationProfile;

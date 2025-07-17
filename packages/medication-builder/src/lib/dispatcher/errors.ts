@@ -7,8 +7,8 @@
  * @since 3.0.0
  */
 
-import { MedicationRequestContext } from '../../types/MedicationRequestContext';
-import { SpecificityLevel } from '../strategies/types';
+import { MedicationRequestContext } from '../types/MedicationRequestContext';
+import { SpecificityLevel } from '../lib/strategies/types';
 
 /**
  * Thrown when multiple strategies at the same specificity level

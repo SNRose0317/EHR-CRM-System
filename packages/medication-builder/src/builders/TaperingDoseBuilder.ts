@@ -22,8 +22,8 @@ import {
   ComplexRegimenBuilderState,
   isValidTaperingPhase
 } from './IComplexRegimenBuilder';
-import { SignatureInstruction, RelationshipType, InstructionRelationship } from '../../types/SignatureInstruction';
-import { MedicationProfile } from '../../types/MedicationProfile';
+import { SignatureInstruction, RelationshipType, InstructionRelationship } from '../types/SignatureInstruction';
+import { MedicationProfile } from '../types/MedicationProfile';
 
 /**
  * Phase transition types for tapering schedules

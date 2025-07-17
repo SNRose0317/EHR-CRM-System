@@ -9,8 +9,8 @@ import {
   isValidDoseInput,
   isValidTimingInput
 } from '../ISignatureBuilder';
-import { SignatureInstruction } from '../../../types/SignatureInstruction';
-import { MedicationRequestContext } from '../../../types/MedicationRequestContext';
+import { SignatureInstruction } from '../../types/SignatureInstruction';
+import { MedicationRequestContext } from '../../types/MedicationRequestContext';
 
 // Mock implementation for testing the interface contract
 class MockSignatureBuilder implements ISignatureBuilder {

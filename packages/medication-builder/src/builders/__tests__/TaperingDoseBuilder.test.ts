@@ -9,8 +9,8 @@ import {
   TaperingPhase,
   isValidTaperingPhase
 } from '../IComplexRegimenBuilder';
-import { MedicationProfile } from '../../../types/MedicationProfile';
-import { RelationshipType } from '../../../types/SignatureInstruction';
+import { MedicationProfile } from '../../types/MedicationProfile';
+import { RelationshipType } from '../../types/SignatureInstruction';
 
 // Test medication for tapering scenarios
 const testTaperingMedication: MedicationProfile = {

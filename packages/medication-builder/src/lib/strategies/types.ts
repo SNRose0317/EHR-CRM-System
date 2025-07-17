@@ -9,8 +9,8 @@
  * @since 2.0.0
  */
 
-import { MedicationRequestContext } from '../../types/MedicationRequestContext';
-import { SignatureInstruction } from '../../types/SignatureInstruction';
+import { MedicationRequestContext } from '../types/MedicationRequestContext';
+import { SignatureInstruction } from '../types/SignatureInstruction';
 
 /**
  * Specificity levels for strategy matching

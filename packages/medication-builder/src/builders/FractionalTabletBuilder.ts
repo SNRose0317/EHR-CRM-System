@@ -14,9 +14,9 @@ import {
   DoseInput,
   isValidDoseInput
 } from './ISignatureBuilder';
-import { SignatureInstruction } from '../../types/SignatureInstruction';
-import { MedicationProfile } from '../../types/MedicationProfile';
-import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { SignatureInstruction } from '../types/SignatureInstruction';
+import { MedicationProfile } from '../types/MedicationProfile';
+import { MedicationRequestContext } from '../types/MedicationRequestContext';
 
 /**
  * Builder for tablet medications requiring fractional dosing with

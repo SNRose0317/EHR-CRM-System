@@ -1,0 +1,11 @@
+
+> @marek/medication-builder@1.0.0 build /Users/nick/Documents/Med Sig Builder/Med-Sig-Builder/EHR-CRM-System/packages/medication-builder
+> tsc
+
+src/lib/calculations.ts(32,83): error TS1110: Type expected.
+src/lib/calculations.ts(32,84): error TS1003: Identifier expected.
+src/lib/calculations.ts(32,85): error TS1003: Identifier expected.
+src/lib/calculations.ts(32,118): error TS1005: ';' expected.
+src/lib/calculations.ts(32,140): error TS1002: Unterminated string literal.
+src/lib/calculations.ts(63,1): error TS1128: Declaration or statement expected.
+ ELIFECYCLE  Command failed with exit code 2.

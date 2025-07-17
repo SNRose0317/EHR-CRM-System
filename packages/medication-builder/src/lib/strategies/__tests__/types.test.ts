@@ -7,8 +7,8 @@ import {
   compareSpecificity,
   sortModifiersByPriority
 } from '../types';
-import { MedicationRequestContext } from '../../../types/MedicationRequestContext';
-import { SignatureInstruction } from '../../../types/SignatureInstruction';
+import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { SignatureInstruction } from '../../types/SignatureInstruction';
 
 // Mock implementations for testing
 class MockBaseStrategy implements IBaseStrategy {

@@ -1,7 +1,7 @@
 /**
  * Type definitions for the Unit Converter system
  */
-import { MedicationProfile } from '../../types/MedicationProfile';
+import { MedicationProfile } from '../types/MedicationProfile';
 
 /**
  * Represents a unit of measurement

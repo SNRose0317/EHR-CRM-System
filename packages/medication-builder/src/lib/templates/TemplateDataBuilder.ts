@@ -1,5 +1,5 @@
 import { TemplateData } from './types';
-import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { MedicationRequestContext } from '../types/MedicationRequestContext';
 
 /**
  * Builds template data from MedicationRequestContext
