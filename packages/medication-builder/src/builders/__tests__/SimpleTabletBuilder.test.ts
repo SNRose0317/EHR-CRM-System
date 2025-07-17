@@ -1,5 +1,5 @@
 import { SimpleTabletBuilder } from '../SimpleTabletBuilder';
-import { MedicationProfile, ScoringType } from '../../../types/MedicationProfile';
+import { MedicationProfile, ScoringType } from '../../types/MedicationProfile';
 import { DoseInput, TimingInput } from '../ISignatureBuilder';
 
 describe('SimpleTabletBuilder', () => {

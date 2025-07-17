@@ -5,7 +5,7 @@ import { DeviceUnitAdapter } from '../DeviceUnitAdapter';
 import { UCUMWrapper } from '../UCUMWrapper';
 import { MissingContextError } from '../ConversionErrors';
 import { DeviceUnit, ConversionContext } from '../types';
-import { MedicationProfile } from '../../../types/MedicationProfile';
+import { MedicationProfile } from '../../types/MedicationProfile';
 
 describe('DeviceUnitAdapter', () => {
   let adapter: DeviceUnitAdapter;

@@ -1,2 +1,2 @@
 // Common utilities
-export { errorLogger } from './errorLogger';
+export { default as errorLogger } from './errorLogger';

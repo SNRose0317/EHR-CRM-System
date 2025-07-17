@@ -13,7 +13,7 @@ import {
   isValidDoseRangeInput,
   isValidFrequencyRangeInput
 } from '../IComplexRegimenBuilder';
-import { MedicationProfile } from '../../../types/MedicationProfile';
+import { MedicationProfile } from '../../types/MedicationProfile';
 
 // Test medication for PRN scenarios
 const testPRNMedication: MedicationProfile = {

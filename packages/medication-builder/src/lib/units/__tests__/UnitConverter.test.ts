@@ -7,7 +7,7 @@ import {
   ConversionOptions,
   DeviceUnit 
 } from '../types';
-import { MedicationProfile } from '../../../types/MedicationProfile';
+import { MedicationProfile } from '../../types/MedicationProfile';
 import {
   InvalidUnitError,
   ImpossibleConversionError

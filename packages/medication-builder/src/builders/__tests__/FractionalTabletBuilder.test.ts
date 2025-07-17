@@ -1,5 +1,5 @@
 import { FractionalTabletBuilder } from '../FractionalTabletBuilder';
-import { MedicationProfile, ScoringType } from '../../../types/MedicationProfile';
+import { MedicationProfile, ScoringType } from '../../types/MedicationProfile';
 import { DoseInput } from '../ISignatureBuilder';
 
 // Type for builder JSON state for testing

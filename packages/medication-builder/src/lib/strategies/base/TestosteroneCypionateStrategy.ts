@@ -8,10 +8,10 @@
  */
 
 import { IBaseStrategyWithMetadata, SpecificityLevel } from '../types';
-import { MedicationRequestContext } from '../../../types/MedicationRequestContext';
-import { SignatureInstruction } from '../../../types/SignatureInstruction';
-import { createTemplateEngine } from '../../templates/templates';
-import { TemplateDataBuilder } from '../../templates/TemplateDataBuilder';
+import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { SignatureInstruction } from '../../types/SignatureInstruction';
+import { createTemplateEngine } from '../../lib/templates/templates';
+import { TemplateDataBuilder } from '../../lib/templates/TemplateDataBuilder';
 
 export class TestosteroneCypionateStrategy implements IBaseStrategyWithMetadata {
   readonly specificity = SpecificityLevel.MEDICATION_ID;

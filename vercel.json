@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "turbo run build --filter=@marek/platform-core",
+  "outputDirectory": "packages/platform-core/dist",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "devCommand": "turbo run dev --filter=@marek/platform-core",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD",
+  "functions": {},
+  "regions": ["iad1"],
+  "env": {
+    "TURBO_TELEMETRY_DISABLED": "1"
+  }
+}

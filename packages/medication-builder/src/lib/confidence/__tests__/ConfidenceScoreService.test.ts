@@ -3,7 +3,7 @@
  */
 import { ConfidenceScoreService } from '../ConfidenceScoreService';
 import { ConversionTrace, ConfidenceLevel } from '../types';
-import { ConversionStep } from '../../units/types';
+import { ConversionStep } from '../../lib/units/types';
 
 describe('ConfidenceScoreService', () => {
   let service: ConfidenceScoreService;

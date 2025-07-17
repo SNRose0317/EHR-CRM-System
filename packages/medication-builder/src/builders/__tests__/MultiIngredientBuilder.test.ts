@@ -20,7 +20,7 @@ import {
   isValidFrequencyRangeInput,
   isValidTaperingPhase
 } from '../IComplexRegimenBuilder';
-import { MedicationProfile, Ingredient } from '../../../types/MedicationProfile';
+import { MedicationProfile, Ingredient } from '../../types/MedicationProfile';
 import { MULTI_INGREDIENT_MEDICATIONS } from '../../../test/data/medication-fixtures';
 
 // Test medications

@@ -14,12 +14,12 @@ import {
   IModifierStrategyWithMetadata,
   SpecificityLevel,
   StrategyMetadata
-} from '../strategies/types';
-import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+} from '../lib/strategies/types';
+import { MedicationRequestContext } from '../types/MedicationRequestContext';
 import { 
   DuplicateStrategyError, 
   PriorityConflictError 
-} from '../dispatcher/errors';
+} from '../lib/dispatcher/errors';
 
 /**
  * Composition chain for debugging

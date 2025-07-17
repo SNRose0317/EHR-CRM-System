@@ -1,7 +1,7 @@
 /**
  * Type definitions for the Confidence Score Service
  */
-import { ConversionStep } from '../units/types';
+import { ConversionStep } from '../lib/units/types';
 
 /**
  * Confidence level categories

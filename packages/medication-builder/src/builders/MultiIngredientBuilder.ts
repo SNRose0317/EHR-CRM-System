@@ -26,9 +26,9 @@ import {
   MaxDailyDoseConstraint,
   ComplexRegimenBuilderState
 } from './IComplexRegimenBuilder';
-import { SignatureInstruction } from '../../types/SignatureInstruction';
-import { MedicationProfile } from '../../types/MedicationProfile';
-import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { SignatureInstruction } from '../types/SignatureInstruction';
+import { MedicationProfile } from '../types/MedicationProfile';
+import { MedicationRequestContext } from '../types/MedicationRequestContext';
 
 /**
  * Individual ingredient dose breakdown

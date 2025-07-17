@@ -8,10 +8,10 @@
 
 import { SimpleTabletBuilder } from '../SimpleTabletBuilder';
 import { SimpleLiquidBuilder } from '../SimpleLiquidBuilder';
-import { AsyncRouteValidator } from '../../validation/AsyncRouteValidator';
+import { AsyncRouteValidator } from '../../lib/validation/AsyncRouteValidator';
 import { routeAPI } from '../../../api/routes';
-import { MedicationProfile, ScoringType } from '../../../types/MedicationProfile';
-import type { RouteMetadata } from '../../validation/RouteValidator';
+import { MedicationProfile, ScoringType } from '../../types/MedicationProfile';
+import type { RouteMetadata } from '../../lib/validation/RouteValidator';
 
 // Mock the route API
 jest.mock('../../../api/routes', () => ({

@@ -4,7 +4,7 @@
  * Calculates confidence scores for unit conversions to help healthcare
  * providers understand the reliability of conversion results.
  */
-import { ConversionStep } from '../units/types';
+import { ConversionStep } from '../lib/units/types';
 import {
   ConfidenceScore,
   ConfidenceLevel,

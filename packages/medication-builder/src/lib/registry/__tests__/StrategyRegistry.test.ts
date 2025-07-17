@@ -3,11 +3,11 @@
  */
 
 import { StrategyRegistry } from '../StrategyRegistry';
-import { IBaseStrategy, IModifierStrategy, SpecificityLevel } from '../../strategies/types';
-import { MedicationRequestContext } from '../../../types/MedicationRequestContext';
-import { SignatureInstruction } from '../../../types/SignatureInstruction';
-import { DuplicateStrategyError, PriorityConflictError } from '../../dispatcher/errors';
-import { createTestMedicationProfile, createTestContext } from '../../dispatcher/__tests__/test-helpers';
+import { IBaseStrategy, IModifierStrategy, SpecificityLevel } from '../../lib/strategies/types';
+import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { SignatureInstruction } from '../../types/SignatureInstruction';
+import { DuplicateStrategyError, PriorityConflictError } from '../../lib/dispatcher/errors';
+import { createTestMedicationProfile, createTestContext } from '../../lib/dispatcher/__tests__/test-helpers';
 
 // Mock strategies for testing
 class MockBaseStrategy implements IBaseStrategy {

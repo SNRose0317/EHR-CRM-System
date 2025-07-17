@@ -4,9 +4,9 @@
 
 import { StrategyDispatcher } from '../StrategyDispatcher';
 import { StrategyRegistry } from '../../registry/StrategyRegistry';
-import { IBaseStrategy, IModifierStrategy, SpecificityLevel } from '../../strategies/types';
-import { MedicationRequestContext } from '../../../types/MedicationRequestContext';
-import { SignatureInstruction } from '../../../types/SignatureInstruction';
+import { IBaseStrategy, IModifierStrategy, SpecificityLevel } from '../../lib/strategies/types';
+import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { SignatureInstruction } from '../../types/SignatureInstruction';
 import { AmbiguousStrategyError, NoMatchingStrategyError } from '../errors';
 import { createTestMedicationProfile, createTestContext } from './test-helpers';
 

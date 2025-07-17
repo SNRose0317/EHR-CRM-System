@@ -5,4 +5,4 @@ export * from './types';
 
 // Common database and API utilities
 export { supabase } from './api/supabase';
-export { errorLogger } from './utils/errorLogger';
+export { default as errorLogger } from './utils/errorLogger';

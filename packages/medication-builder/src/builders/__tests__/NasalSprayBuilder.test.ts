@@ -1,5 +1,5 @@
 import { NasalSprayBuilder } from '../NasalSprayBuilder';
-import { MedicationProfile } from '../../../types/MedicationProfile';
+import { MedicationProfile } from '../../types/MedicationProfile';
 import { DoseInput } from '../ISignatureBuilder';
 
 // Type for builder JSON state for testing

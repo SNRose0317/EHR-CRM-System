@@ -9,8 +9,8 @@
  */
 
 import { ISignatureBuilder, DoseInput, TimingInput } from './ISignatureBuilder';
-import { SignatureInstruction } from '../../types/SignatureInstruction';
-import type { InstructionRelationship } from '../../types/SignatureInstruction';
+import { SignatureInstruction } from '../types/SignatureInstruction';
+import type { InstructionRelationship } from '../types/SignatureInstruction';
 
 // Re-export types needed by other modules
 export type { InstructionRelationship };
