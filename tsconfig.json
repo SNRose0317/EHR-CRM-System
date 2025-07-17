@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"]
+  },
+  "references": [
+    { "path": "./packages/shared" },
+    { "path": "./packages/ui-kit" },
+    { "path": "./packages/medication-builder" },
+    { "path": "./packages/platform-core" }
+  ],
+  "include": [],
+  "exclude": ["node_modules", "**/dist", "**/coverage"]
+}
