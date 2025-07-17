@@ -1,5 +1,10 @@
 # Vercel Environment Setup - Complete Configuration
 
+## 📚 For Developers
+
+- **🆕 New to the workflow?** Start with [Beginner Workflow Guide](./BEGINNER_WORKFLOW.md)
+- **📋 Need daily reference?** Use [Workflow Checklist](./WORKFLOW_CHECKLIST.md)
+
 ## 🎯 Environment Architecture Created
 
 I've set up your complete staging/production environment structure:
