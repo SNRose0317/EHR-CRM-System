@@ -1,0 +1,80 @@
+# Auto-labeling configuration for pull requests
+
+# Documentation changes
+documentation:
+  - '**/*.md'
+  - 'docs/**/*'
+  - '**/*.mdx'
+
+# Frontend changes
+frontend:
+  - 'packages/platform-core/**/*'
+  - 'packages/ui-kit/**/*'
+
+# Backend/API changes
+backend:
+  - 'packages/shared/**/*'
+  - '**/api/**/*'
+
+# Medication builder changes
+medication-builder:
+  - 'packages/medication-builder/**/*'
+
+# Configuration changes
+config:
+  - '**/*.json'
+  - '**/*.yml'
+  - '**/*.yaml'
+  - '**/.*rc*'
+  - '**/.env*'
+  - '**/vite.config.*'
+  - '**/package.json'
+  - '**/pnpm-lock.yaml'
+
+# Dependencies
+dependencies:
+  - 'package.json'
+  - 'pnpm-lock.yaml'
+  - '**/package.json'
+
+# Tests
+tests:
+  - '**/*.test.*'
+  - '**/*.spec.*'
+  - '**/test/**/*'
+  - '**/__tests__/**/*'
+
+# CI/CD
+ci:
+  - '.github/**/*'
+  - '**/workflows/**/*'
+
+# Performance
+performance:
+  - '**/performance/**/*'
+  - '**/*.benchmark.*'
+
+# Security
+security:
+  - '**/security/**/*'
+  - '**/.nvmrc'
+  - '**/audit**'
+
+# Types
+types:
+  - '**/types/**/*'
+  - '**/*.d.ts'
+
+# Styles
+styles:
+  - '**/*.css'
+  - '**/*.scss'
+  - '**/*.tailwind*'
+
+# Build system
+build:
+  - '**/vite.config.*'
+  - '**/turbo.json'
+  - '**/tsconfig.*'
+  - '**/rollup.config.*'
+  - '**/webpack.config.*'

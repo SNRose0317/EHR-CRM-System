@@ -1,0 +1,192 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    name: Test and Lint
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 10
+        
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
+        
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+      
+    - name: Type check
+      run: pnpm run typecheck
+      
+    - name: Lint code
+      run: pnpm run lint
+      
+    - name: Run tests
+      run: pnpm run test
+      
+    - name: Build packages
+      run: pnpm run build
+      
+    - name: Run performance tests
+      run: pnpm run test:performance
+
+  build-staging:
+    name: Build Staging
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 10
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'pnpm'
+        
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+      
+    - name: Build for staging
+      run: pnpm run build
+      env:
+        VITE_APP_ENV: staging
+        
+    - name: Upload staging artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: staging-build
+        path: packages/platform-core/dist/
+
+  build-production:
+    name: Build Production
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 10
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'pnpm'
+        
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+      
+    - name: Build for production
+      run: pnpm run build
+      env:
+        VITE_APP_ENV: production
+        
+    - name: Upload production artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: production-build
+        path: packages/platform-core/dist/
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        
+    - name: Run npm audit
+      run: npm audit --audit-level=high
+      
+    - name: Run security scan
+      uses: securecodewarrior/github-action-add-sarif@v1
+      if: always()
+      continue-on-error: true
+      with:
+        sarif-file: 'security-scan-results.sarif'
+
+  performance-gates:
+    name: Performance Gates
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 10
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'pnpm'
+        
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+      
+    - name: Run performance benchmarks
+      run: pnpm run benchmark
+      
+    - name: Evaluate performance gates
+      run: pnpm run perf:gates
+
+  notify-deployment:
+    name: Notify Deployment Status
+    runs-on: ubuntu-latest
+    needs: [test, build-staging, build-production]
+    if: always()
+    
+    steps:
+    - name: Deployment Success
+      if: needs.test.result == 'success' && (needs.build-staging.result == 'success' || needs.build-production.result == 'success')
+      run: |
+        echo "🚀 Deployment pipeline completed successfully!"
+        echo "✅ Tests passed"
+        echo "✅ Build completed"
+        
+    - name: Deployment Failure
+      if: needs.test.result == 'failure' || needs.build-staging.result == 'failure' || needs.build-production.result == 'failure'
+      run: |
+        echo "❌ Deployment pipeline failed!"
+        echo "Please check the logs and fix any issues."
+        exit 1
