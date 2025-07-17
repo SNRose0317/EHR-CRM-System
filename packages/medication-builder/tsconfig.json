@@ -27,6 +27,9 @@
     "node_modules",
     "dist",
     "**/*.test.ts",
-    "**/*.test.tsx"
+    "**/*.test.tsx",
+    "src/test/**/*",
+    "src/**/__tests__/**/*",
+    "src/**/*.benchmark.ts"
   ]
 }

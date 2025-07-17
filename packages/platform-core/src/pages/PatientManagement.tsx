@@ -1,5 +1,4 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, Button, Input } from '@marek/ui-kit';
+// Patient management page
 
 export default function PatientManagement() {
   return (
@@ -7,149 +6,124 @@ export default function PatientManagement() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">Patient Management</h1>
-          <p className="text-gray-400">Manage patient profiles and medical records</p>
+          <p className="text-gray-400">Manage patient records and information</p>
         </div>
-        <Button className="bg-red-500 hover:bg-red-600">
-          + Add New Patient
-        </Button>
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+          Add New Patient
+        </button>
       </div>
 
       {/* Search and Filters */}
-      <Card className="bg-gray-750">
-        <CardContent className="pt-6">
-          <div className="flex gap-4">
-            <Input 
-              placeholder="Search by name, ID, or phone..." 
-              className="flex-1 bg-gray-700 border-gray-600"
-            />
-            <Button variant="outline">Search</Button>
-            <Button variant="outline">Filters</Button>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="bg-gray-700 p-4 rounded-lg">
+        <div className="flex gap-4">
+          <input
+            type="text"
+            placeholder="Search patients..."
+            className="flex-1 bg-gray-600 text-white px-4 py-2 rounded-lg border border-gray-500 focus:border-blue-500 focus:outline-none"
+          />
+          <select className="bg-gray-600 text-white px-4 py-2 rounded-lg border border-gray-500">
+            <option>All Patients</option>
+            <option>Active</option>
+            <option>Inactive</option>
+          </select>
+          <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
+            Search
+          </button>
+        </div>
+      </div>
 
       {/* Patient List */}
-      <Card className="bg-gray-750">
-        <CardHeader>
-          <CardTitle>Patient List</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-gray-600">
-                  <th className="text-left p-3 text-gray-400">Name</th>
-                  <th className="text-left p-3 text-gray-400">DOB</th>
-                  <th className="text-left p-3 text-gray-400">Phone</th>
-                  <th className="text-left p-3 text-gray-400">Last Visit</th>
-                  <th className="text-left p-3 text-gray-400">Status</th>
-                  <th className="text-left p-3 text-gray-400">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-gray-700 hover:bg-gray-700">
-                  <td className="p-3">
-                    <div>
-                      <div className="font-medium text-white">John Smith</div>
-                      <div className="text-sm text-gray-400">ID: PT-2024-001</div>
-                    </div>
-                  </td>
-                  <td className="p-3 text-gray-300">03/15/1985</td>
-                  <td className="p-3 text-gray-300">(555) 123-4567</td>
-                  <td className="p-3 text-gray-300">01/15/2024</td>
-                  <td className="p-3">
-                    <span className="px-2 py-1 bg-green-600 text-green-100 rounded-full text-xs">
-                      Active
-                    </span>
-                  </td>
-                  <td className="p-3">
-                    <div className="flex gap-2">
-                      <Button size="sm" variant="outline">View</Button>
-                      <Button size="sm" variant="outline">Edit</Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="border-b border-gray-700 hover:bg-gray-700">
-                  <td className="p-3">
-                    <div>
-                      <div className="font-medium text-white">Sarah Johnson</div>
-                      <div className="text-sm text-gray-400">ID: PT-2024-002</div>
-                    </div>
-                  </td>
-                  <td className="p-3 text-gray-300">07/22/1992</td>
-                  <td className="p-3 text-gray-300">(555) 234-5678</td>
-                  <td className="p-3 text-gray-300">01/10/2024</td>
-                  <td className="p-3">
-                    <span className="px-2 py-1 bg-green-600 text-green-100 rounded-full text-xs">
-                      Active
-                    </span>
-                  </td>
-                  <td className="p-3">
-                    <div className="flex gap-2">
-                      <Button size="sm" variant="outline">View</Button>
-                      <Button size="sm" variant="outline">Edit</Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="border-b border-gray-700 hover:bg-gray-700">
-                  <td className="p-3">
-                    <div>
-                      <div className="font-medium text-white">Mike Davis</div>
-                      <div className="text-sm text-gray-400">ID: PT-2024-003</div>
-                    </div>
-                  </td>
-                  <td className="p-3 text-gray-300">11/08/1978</td>
-                  <td className="p-3 text-gray-300">(555) 345-6789</td>
-                  <td className="p-3 text-gray-300">12/28/2023</td>
-                  <td className="p-3">
-                    <span className="px-2 py-1 bg-yellow-600 text-yellow-100 rounded-full text-xs">
-                      Follow-up
-                    </span>
-                  </td>
-                  <td className="p-3">
-                    <div className="flex gap-2">
-                      <Button size="sm" variant="outline">View</Button>
-                      <Button size="sm" variant="outline">Edit</Button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="bg-gray-700 rounded-lg overflow-hidden">
+        <table className="w-full">
+          <thead className="bg-gray-800">
+            <tr>
+              <th className="text-left px-6 py-3 text-white font-semibold">Name</th>
+              <th className="text-left px-6 py-3 text-white font-semibold">DOB</th>
+              <th className="text-left px-6 py-3 text-white font-semibold">Phone</th>
+              <th className="text-left px-6 py-3 text-white font-semibold">Last Visit</th>
+              <th className="text-left px-6 py-3 text-white font-semibold">Status</th>
+              <th className="text-left px-6 py-3 text-white font-semibold">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-600">
+            <tr className="hover:bg-gray-600">
+              <td className="px-6 py-4">
+                <div>
+                  <div className="text-white font-medium">John Doe</div>
+                  <div className="text-gray-400 text-sm">Patient ID: P001</div>
+                </div>
+              </td>
+              <td className="px-6 py-4 text-gray-300">1985-03-15</td>
+              <td className="px-6 py-4 text-gray-300">(555) 123-4567</td>
+              <td className="px-6 py-4 text-gray-300">2024-01-15</td>
+              <td className="px-6 py-4">
+                <span className="px-2 py-1 bg-green-600 text-green-100 rounded-full text-xs">Active</span>
+              </td>
+              <td className="px-6 py-4">
+                <div className="flex gap-2">
+                  <button className="text-blue-400 hover:text-blue-300">View</button>
+                  <button className="text-yellow-400 hover:text-yellow-300">Edit</button>
+                </div>
+              </td>
+            </tr>
+            
+            <tr className="hover:bg-gray-600">
+              <td className="px-6 py-4">
+                <div>
+                  <div className="text-white font-medium">Sarah Wilson</div>
+                  <div className="text-gray-400 text-sm">Patient ID: P002</div>
+                </div>
+              </td>
+              <td className="px-6 py-4 text-gray-300">1990-07-22</td>
+              <td className="px-6 py-4 text-gray-300">(555) 987-6543</td>
+              <td className="px-6 py-4 text-gray-300">2024-01-10</td>
+              <td className="px-6 py-4">
+                <span className="px-2 py-1 bg-green-600 text-green-100 rounded-full text-xs">Active</span>
+              </td>
+              <td className="px-6 py-4">
+                <div className="flex gap-2">
+                  <button className="text-blue-400 hover:text-blue-300">View</button>
+                  <button className="text-yellow-400 hover:text-yellow-300">Edit</button>
+                </div>
+              </td>
+            </tr>
+            
+            <tr className="hover:bg-gray-600">
+              <td className="px-6 py-4">
+                <div>
+                  <div className="text-white font-medium">Michael Brown</div>
+                  <div className="text-gray-400 text-sm">Patient ID: P003</div>
+                </div>
+              </td>
+              <td className="px-6 py-4 text-gray-300">1978-11-08</td>
+              <td className="px-6 py-4 text-gray-300">(555) 456-7890</td>
+              <td className="px-6 py-4 text-gray-300">2023-12-20</td>
+              <td className="px-6 py-4">
+                <span className="px-2 py-1 bg-red-600 text-red-100 rounded-full text-xs">Inactive</span>
+              </td>
+              <td className="px-6 py-4">
+                <div className="flex gap-2">
+                  <button className="text-blue-400 hover:text-blue-300">View</button>
+                  <button className="text-yellow-400 hover:text-yellow-300">Edit</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="bg-gray-750">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium text-gray-400">Total Patients</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-white">1,234</div>
-            <p className="text-xs text-green-400">+45 this month</p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-gray-750">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium text-gray-400">Pending Follow-ups</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-white">23</div>
-            <p className="text-xs text-yellow-400">Requires attention</p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-gray-750">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium text-gray-400">New This Week</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-white">12</div>
-            <p className="text-xs text-blue-400">8 completed intake</p>
-          </CardContent>
-        </Card>
+      {/* Pagination */}
+      <div className="flex justify-between items-center">
+        <div className="text-gray-400">
+          Showing 1 to 3 of 1,247 patients
+        </div>
+        <div className="flex gap-2">
+          <button className="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1 rounded transition-colors">Previous</button>
+          <button className="bg-blue-600 text-white px-3 py-1 rounded">1</button>
+          <button className="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1 rounded transition-colors">2</button>
+          <button className="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1 rounded transition-colors">3</button>
+          <button className="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1 rounded transition-colors">Next</button>
+        </div>
       </div>
     </div>
   );

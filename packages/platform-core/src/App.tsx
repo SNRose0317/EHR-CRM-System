@@ -1,9 +1,6 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Button, Card, CardContent, CardHeader, CardTitle } from '@marek/ui-kit';
-import { createBuilder } from '@marek/medication-builder';
 
-// Import pages (to be created)
+// Import pages
 import Dashboard from './pages/Dashboard';
 import PatientManagement from './pages/PatientManagement';
 import MedicationBuilder from './pages/MedicationBuilder';
@@ -66,17 +63,13 @@ function App() {
 // Placeholder component for future modules
 function ComingSoon({ title }: { title: string }) {
   return (
-    <Card className="bg-gray-750">
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-gray-400">This module is coming soon in Phase 2-4 of development.</p>
-        <p className="text-sm text-gray-500 mt-2">
-          Will include comprehensive {title.toLowerCase()} management features.
-        </p>
-      </CardContent>
-    </Card>
+    <div className="bg-gray-700 p-6 rounded-lg">
+      <h2 className="text-2xl font-bold text-white mb-4">{title}</h2>
+      <p className="text-gray-400">This module is coming soon in Phase 2-4 of development.</p>
+      <p className="text-sm text-gray-500 mt-2">
+        Will include comprehensive {title.toLowerCase()} management features.
+      </p>
+    </div>
   );
 }
 

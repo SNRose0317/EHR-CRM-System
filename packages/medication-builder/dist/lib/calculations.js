@@ -1,4 +1,5 @@
 import { getFrequency } from '../constants/medication-data';
+import { createDaysSupplyContext } from './strategies/days-supply/index';
 /**
  * Calculates days supply for a medication
  * Returns null if calculation not possible (e.g., PRN medications)
@@ -9,27 +10,30 @@ export function calculateDaysSupply(medication, dose) {
     // Force fallback to legacy calculation for now
     return calculateDaysSupplyLegacy(medication, dose);
 }
-/lib/strategies / days - supply / index;
-').DaysSupplyContext {;
-if (!medication.packageInfo) {
-    throw new Error('No package info available');
+/**
+ * Convert legacy medication/dose format to new strategy context
+ */
+function convertToStrategyContext(medication, dose) {
+    if (!medication.packageInfo) {
+        throw new Error('No package info available');
+    }
+    const frequency = getFrequency(dose.frequencyKey);
+    if (!frequency) {
+        throw new Error('Invalid frequency');
+    }
+    // Convert frequency to timing string
+    const timing = convertFrequencyToTiming(frequency);
+    // Use FHIR packaging model: quantity × packSize for total available medication
+    const totalQuantity = medication.packageInfo.quantity * (medication.packageInfo.packSize || 1);
+    return createDaysSupplyContext(totalQuantity, medication.packageInfo.unit, dose.value, dose.unit, timing, {
+        doseForm: medication.doseForm || medication.type,
+        ingredient: medication.ingredient,
+        dispenserInfo: medication.dispenserInfo ? {
+            conversionRatio: medication.dispenserInfo.conversionRatio,
+            unit: medication.dispenserInfo.unit
+        } : undefined
+    });
 }
-const frequency = getFrequency(dose.frequencyKey);
-if (!frequency) {
-    throw new Error('Invalid frequency');
-}
-// Convert frequency to timing string
-const timing = convertFrequencyToTiming(frequency);
-// Use FHIR packaging model: quantity × packSize for total available medication
-const totalQuantity = medication.packageInfo.quantity * (medication.packageInfo.packSize || 1);
-return createDaysSupplyContext(totalQuantity, medication.packageInfo.unit, dose.value, dose.unit, timing, {
-    doseForm: medication.doseForm || medication.type,
-    ingredient: medication.ingredient,
-    dispenserInfo: medication.dispenserInfo ? {
-        conversionRatio: medication.dispenserInfo.conversionRatio,
-        unit: medication.dispenserInfo.unit
-    } : undefined
-});
 /**
  * Convert frequency object to timing string
  */
