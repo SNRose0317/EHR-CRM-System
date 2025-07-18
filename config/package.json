@@ -1,0 +1,46 @@
+{
+  "name": "@marek/domain-config",
+  "version": "2.1.0",
+  "description": "Domain configuration system for EHR/CRM platform",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "tsx tools/validate-config.ts",
+    "list-presets": "tsx tools/list-presets.ts",
+    "list-user-types": "tsx tools/list-user-types.ts",
+    "create-custom": "tsx tools/create-custom.ts",
+    "test-config": "tsx tools/test-config.ts"
+  },
+  "dependencies": {
+    "@marek/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "exports": {
+    "./environment": {
+      "import": "./environment.js",
+      "types": "./environment.d.ts"
+    },
+    "./user-types": {
+      "import": "./user-types/index.js", 
+      "types": "./user-types/index.d.ts"
+    },
+    "./deployment-presets": {
+      "import": "./deployment-presets/index.js",
+      "types": "./deployment-presets/index.d.ts"
+    },
+    "./tools": {
+      "import": "./tools/index.js",
+      "types": "./tools/index.d.ts"
+    }
+  },
+  "files": [
+    "environment.js",
+    "environment.d.ts",
+    "user-types/",
+    "deployment-presets/",
+    "tools/"
+  ]
+}

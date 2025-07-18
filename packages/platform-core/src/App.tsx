@@ -1,19 +1,18 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { 
-  DomainConfigProvider, 
-  CLIENT_CONFIG, 
-  createDomainConfig,
+  DomainConfigProvider,
   useServiceRecipientConfig,
   useServiceRecipientTerminology
 } from '@marek/shared';
+import { loadDomainConfig } from '../../../config/environment';
 
 // Import pages
 import Dashboard from './pages/Dashboard';
 import ServiceRecipientManagement from './pages/PatientManagement';
 import MedicationBuilder from './pages/MedicationBuilder';
 
-// Create domain configuration for this deployment
-const domainConfig = createDomainConfig(CLIENT_CONFIG);
+// Load domain configuration from environment
+const domainConfig = loadDomainConfig();
 
 function App() {
   return (

@@ -3,7 +3,7 @@
 ## Project Overview
 The EHR/CRM System is a full-scale healthcare platform for Marek Health, built as a monorepo that includes patient management, appointment scheduling, lab results, and medication management capabilities.
 
-## Project Status: **Foundation Complete - Phase 1.1 ✅**
+## Project Status: **Enhanced Configuration System - Phase 2.1 ✅**
 
 ### Successfully Completed (Phase 1.1)
 - ✅ **New GitHub Repository**: Created `EHR-CRM-System` 
@@ -14,14 +14,28 @@ The EHR/CRM System is a full-scale healthcare platform for Marek Health, built a
 - ✅ **Platform Core**: Main application shell with routing
 - ✅ **Build System**: TypeScript project references and Vite configuration
 
+### Successfully Completed (Phase 2.1) - Domain Configuration System
+- ✅ **Hierarchical Configuration Structure**: Organized by user types and deployment scenarios
+- ✅ **Multi-Terminology Support**: Patient/Client/Contact/Customer/Member/Subscriber/Participant
+- ✅ **Environment-Based Loading**: `DOMAIN_TYPE=client pnpm dev` for easy switching
+- ✅ **Deployment Presets**: Pre-configured scenarios for different industries
+- ✅ **FHIR Compliance Maintained**: Automatic mapping preserves clinical standards
+- ✅ **Comprehensive Validation**: Built-in configuration validation and testing tools
+
 ## Monorepo Architecture
 
 ```
-packages/
-├── medication-builder/     # Advanced medication signature builder
-├── ui-kit/                # Marek Health design system
-├── shared/               # Common utilities and API layer  
-└── platform-core/       # Main EHR/CRM application
+├── config/                # Domain configuration system
+│   ├── users/            # User type configurations
+│   │   ├── external/     # Service recipients (patient/client/contact)
+│   │   └── internal/     # Staff configurations
+│   ├── deployment-presets/  # Industry-specific presets
+│   └── tools/            # Configuration utilities
+└── packages/
+    ├── medication-builder/  # Advanced medication signature builder
+    ├── ui-kit/             # Marek Health design system
+    ├── shared/            # Common utilities and domain abstractions
+    └── platform-core/    # Main EHR/CRM application
 ```
 
 ### Package Details
@@ -39,10 +53,17 @@ packages/
 - **Dependencies**: Radix UI primitives, class-variance-authority
 
 #### @marek/shared
-- **Purpose**: Common utilities, types, and API configurations
-- **Features**: Supabase client, error handling, shared types
-- **Status**: Basic structure created
+- **Purpose**: Common utilities, types, API configurations, and domain abstractions
+- **Features**: Supabase client, error handling, shared types, domain configuration system
+- **Status**: Enhanced with domain terminology abstraction system
 - **Dependencies**: `@supabase/supabase-js`
+
+#### Domain Configuration System (`/config/`)
+- **Purpose**: Centralized domain terminology and user type management
+- **Features**: Multi-terminology support, environment-based loading, deployment presets
+- **User Types**: Patient/Client/Contact/Customer/Member/Subscriber/Participant
+- **Deployment Presets**: Traditional Healthcare, Business CRM, Sales Organization
+- **Status**: Comprehensive hierarchical configuration system with validation tools
 
 #### @marek/platform-core
 - **Purpose**: Main EHR/CRM application with routing and layout
@@ -78,8 +99,25 @@ packages/
 npm install          # Install all dependencies
 npm run dev         # Start platform-core dev server
 npm run build       # Build all packages
-npm run typecheck   # Type check all packages (has errors to fix)
-npm test            # Run tests (needs implementation)
+npm run typecheck   # Type check all packages
+npm test            # Run tests
+```
+
+### Domain Configuration
+```bash
+# Switch terminology
+DOMAIN_TYPE=client pnpm dev      # Use client terminology
+DOMAIN_TYPE=patient pnpm dev     # Use patient terminology  
+DOMAIN_TYPE=contact pnpm dev     # Use contact terminology
+
+# Use deployment presets
+DEPLOYMENT_PRESET=traditional-healthcare pnpm dev
+DEPLOYMENT_PRESET=business-crm pnpm dev
+
+# Configuration management
+pnpm config:validate            # Validate current configuration
+pnpm config:list-presets        # List available deployment presets
+pnpm config:list-user-types     # List available user types
 ```
 
 ### Individual Packages
