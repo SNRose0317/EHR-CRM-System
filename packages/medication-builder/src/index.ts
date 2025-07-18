@@ -9,8 +9,8 @@ export { generateSignature } from './lib/signature';
 
 // Utility exports
 export { UnitConverter } from './lib/units';
-export { TemplateEngine } from './lib/templates';
-export { StrategyDispatcher } from './lib/dispatcher';
+export { TemplateEngine } from './lib/templates/TemplateEngine';
+export { StrategyDispatcher } from './lib/dispatcher/StrategyDispatcher';
 
 // Re-export all types and interfaces
 export type {

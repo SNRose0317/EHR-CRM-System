@@ -8,14 +8,14 @@
  * @since 3.0.0
  */
 
-import { MedicationRequestContext } from '../types/MedicationRequestContext';
-import { SignatureInstruction } from '../types/SignatureInstruction';
+import { MedicationRequestContext } from '../../types/MedicationRequestContext';
+import { SignatureInstruction } from '../../types/SignatureInstruction';
 import { 
   IBaseStrategy, 
   IModifierStrategy, 
   compareSpecificity,
   sortModifiersByPriority
-} from '../lib/strategies/types';
+} from '../strategies/types';
 import { StrategyRegistry } from '../registry/StrategyRegistry';
 import { 
   AmbiguousStrategyError, 
