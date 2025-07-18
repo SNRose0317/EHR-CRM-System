@@ -14,7 +14,7 @@ jobs:
   deploy-staging:
     name: Deploy to Staging
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop' && secrets.VERCEL_TOKEN != ''
     
     steps:
     - name: Checkout code
@@ -62,7 +62,7 @@ jobs:
   deploy-production:
     name: Deploy to Production
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && secrets.VERCEL_TOKEN != ''
     environment: production
     
     steps:
@@ -114,6 +114,25 @@ jobs:
           ${{ github.event.head_commit.message }}
         draft: false
         prerelease: false
+
+  vercel-setup-info:
+    name: Vercel Setup Information
+    runs-on: ubuntu-latest
+    if: secrets.VERCEL_TOKEN == ''
+    
+    steps:
+    - name: Vercel Configuration Notice
+      run: |
+        echo "📋 Vercel deployment is not configured yet"
+        echo ""
+        echo "To enable Vercel deployments, add these secrets to your GitHub repository:"
+        echo "- VERCEL_TOKEN: Your Vercel authentication token"
+        echo "- VERCEL_ORG_ID: Your Vercel organization ID" 
+        echo "- VERCEL_PROJECT_ID: Your Vercel project ID"
+        echo ""
+        echo "Visit: https://github.com/${{ github.repository }}/settings/secrets/actions"
+        echo ""
+        echo "This is optional - your CI/CD pipeline works without Vercel deployment"
 
   health-check:
     name: Post-Deployment Health Check
