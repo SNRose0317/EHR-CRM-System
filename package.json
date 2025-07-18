@@ -9,7 +9,14 @@
     "test": "turbo run test",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
-    "clean": "turbo run clean"
+    "clean": "turbo run clean",
+    "config:validate": "cd config && pnpm validate",
+    "config:list-presets": "cd config && pnpm list-presets",
+    "config:list-user-types": "cd config && pnpm list-user-types",
+    "config:create-custom": "cd config && pnpm create-custom",
+    "config:test": "cd config && pnpm test-config",
+    "config:test:unit": "cd config && pnpm test",
+    "config:test:coverage": "cd config && pnpm test:coverage"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
