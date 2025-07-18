@@ -2,6 +2,7 @@
 export * from './api';
 export * from './utils';
 export * from './types';
+export * from './domain';
 
 // Common database and API utilities
 export { supabase } from './api/supabase';

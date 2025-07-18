@@ -1,15 +1,20 @@
-// Patient management page
+// External Service Recipient management page
 
-export default function PatientManagement() {
+import { useServiceRecipientLabels, useServiceRecipientTerminology } from '@marek/shared';
+
+export default function ServiceRecipientManagement() {
+  const labels = useServiceRecipientLabels();
+  const terminology = useServiceRecipientTerminology();
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-white">Patient Management</h1>
-          <p className="text-gray-400">Manage patient records and information</p>
+          <h1 className="text-3xl font-bold text-white">{labels.management}</h1>
+          <p className="text-gray-400">Manage {terminology.singular} records and information</p>
         </div>
         <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-          Add New Patient
+          {labels.addNew}
         </button>
       </div>
 
@@ -18,11 +23,11 @@ export default function PatientManagement() {
         <div className="flex gap-4">
           <input
             type="text"
-            placeholder="Search patients..."
+            placeholder={labels.search}
             className="flex-1 bg-gray-600 text-white px-4 py-2 rounded-lg border border-gray-500 focus:border-blue-500 focus:outline-none"
           />
           <select className="bg-gray-600 text-white px-4 py-2 rounded-lg border border-gray-500">
-            <option>All Patients</option>
+            <option>{labels.listTitle}</option>
             <option>Active</option>
             <option>Inactive</option>
           </select>
@@ -32,7 +37,7 @@ export default function PatientManagement() {
         </div>
       </div>
 
-      {/* Patient List */}
+      {/* Service Recipient List */}
       <div className="bg-gray-700 rounded-lg overflow-hidden">
         <table className="w-full">
           <thead className="bg-gray-800">
@@ -50,7 +55,7 @@ export default function PatientManagement() {
               <td className="px-6 py-4">
                 <div>
                   <div className="text-white font-medium">John Doe</div>
-                  <div className="text-gray-400 text-sm">Patient ID: P001</div>
+                  <div className="text-gray-400 text-sm">{labels.entityId}: C001</div>
                 </div>
               </td>
               <td className="px-6 py-4 text-gray-300">1985-03-15</td>
@@ -71,7 +76,7 @@ export default function PatientManagement() {
               <td className="px-6 py-4">
                 <div>
                   <div className="text-white font-medium">Sarah Wilson</div>
-                  <div className="text-gray-400 text-sm">Patient ID: P002</div>
+                  <div className="text-gray-400 text-sm">{labels.entityId}: C002</div>
                 </div>
               </td>
               <td className="px-6 py-4 text-gray-300">1990-07-22</td>
@@ -92,7 +97,7 @@ export default function PatientManagement() {
               <td className="px-6 py-4">
                 <div>
                   <div className="text-white font-medium">Michael Brown</div>
-                  <div className="text-gray-400 text-sm">Patient ID: P003</div>
+                  <div className="text-gray-400 text-sm">{labels.entityId}: C003</div>
                 </div>
               </td>
               <td className="px-6 py-4 text-gray-300">1978-11-08</td>
@@ -115,7 +120,7 @@ export default function PatientManagement() {
       {/* Pagination */}
       <div className="flex justify-between items-center">
         <div className="text-gray-400">
-          Showing 1 to 3 of 1,247 patients
+          Showing 1 to 3 of 1,247 {terminology.plural}
         </div>
         <div className="flex gap-2">
           <button className="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1 rounded transition-colors">Previous</button>

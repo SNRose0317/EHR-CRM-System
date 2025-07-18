@@ -21,6 +21,10 @@
     "./types": {
       "import": "./dist/types/index.js",
       "types": "./dist/types/index.d.ts"
+    },
+    "./domain": {
+      "import": "./dist/domain/index.js",
+      "types": "./dist/domain/index.d.ts"
     }
   },
   "files": [
@@ -38,6 +42,9 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.38.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
   },
   "devDependencies": {
     "@types/jest": "^29.0.0",
